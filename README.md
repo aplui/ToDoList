@@ -1,2 +1,2 @@
 # ToDoList
-A simple ToDoList built for my own learning purposes.
+A simple ToDoList built on NodeJS, EJS, and MongoDB for my own learning purposes.
