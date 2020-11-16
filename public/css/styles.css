@@ -1,5 +1,5 @@
 html {
-  background: url(https://source.unsplash.com/1_CMoFsPfso/);
+  background-color: #43658b;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'arial';
@@ -19,7 +19,7 @@ h1 {
 }
 
 #heading {
-  background-color: #19d3da;
+  background-color: #ed6663;
   text-align: center;
 }
 
@@ -61,7 +61,7 @@ button {
   width: 50px;
   border-radius: 80%;
   border-color: transparent;
-  background-color: #373a40;
+  background-color: #ffa372;
   color: #fff;
   font-size: 35px;
   padding-bottom: 3px;
@@ -81,7 +81,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #19d3da;
+  box-shadow: inset 0 -3px 0 0 #ed6663;
 }
 
 ::placeholder {
