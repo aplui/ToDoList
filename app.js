@@ -94,16 +94,28 @@ app.post("/", function (req, res) {
 });
 
 app.post("/delete", function (req, res) {
-  const checkedItemID = req.body.checkbox;
+  const checkedItemId = req.body.checkbox;
+  const listName = req.body.listName;
 
-  Item.findByIdAndRemove(checkedItemID, function (err) {
-    if (!err) {
-      console.log("Succesfully deleted checked item!");
-      res.redirect("/");
-    }
-  });
+  if (listName === "Today") {
+    Item.findByIdAndRemove(checkedItemId, function (err) {
+      if (!err) {
+        console.log("Succesfully deleted checked item.");
+        res.redirect("/");
+      }
+    });
+  } else {
+    List.findOneAndUpdate(
+      { name: listName },
+      { $pull: { items: { _id: checkedItemId } } },
+      function (err, foundList) {
+        if (!err) {
+          res.redirect("/" + listName);
+        }
+      }
+    );
+  }
 });
-
 app.listen(3000, function () {
   console.log("Server is running on port 3000");
 });
