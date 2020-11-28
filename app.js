@@ -12,9 +12,12 @@ app.use(
 );
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-alex:test123@cluster0.bqxxe.mongodb.net/todolistDB?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  "mongodb+srv://admin-alex:test123@cluster0.bqxxe.mongodb.net/todolistDB?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+  }
+);
 
 const itemsSchema = { name: String };
 const Item = mongoose.model("Item", itemsSchema);
@@ -117,6 +120,13 @@ app.post("/delete", function (req, res) {
     );
   }
 });
-app.listen(3000, function () {
-  console.log("Server is running on port 3000");
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+
+app.listen(port, function () {
+  console.log("Server started succesfully!");
 });
