@@ -12,7 +12,7 @@ app.use(
 );
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect("mongodb+srv://admin-alex:test123@cluster0.bqxxe.mongodb.net/todolistDB?retryWrites=true&w=majority", {
   useNewUrlParser: true,
 });
 
